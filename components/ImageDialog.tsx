@@ -18,7 +18,7 @@ function ImageDialog({open, onClose, image}: ImageDialogProps) {
           display: "flex",
           justifyContent: "space-between"
         }}>
-          <Typography variant={"h6"}>Full-screen Image</Typography>
+          <Typography variant={"subtitle1"}>Full-screen Image</Typography>
           <Button onClick={onClose} aria-label={"Close dialog"}>Close</Button>
         </Toolbar>
       </AppBar>
