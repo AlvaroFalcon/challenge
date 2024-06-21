@@ -1,6 +1,8 @@
 import {Button, Container, Grid} from "@mui/material";
 import type {NextPage} from "next";
 import Head from "next/head";
+import {useState} from "react";
+import ImageDialog from "../components/ImageDialog";
 import {ThumbnailImage} from "../components/ThumbnailImage";
 import {IVaultImage} from "../model/vaultImage";
 
@@ -9,6 +11,7 @@ export type VaultProps = {
 };
 
 const Vault: NextPage<VaultProps> = ({images}) => {
+  const [selectedImage, setSelectedImage] = useState<IVaultImage | null>(null);
   return (
     <>
       <Head>
@@ -17,10 +20,11 @@ const Vault: NextPage<VaultProps> = ({images}) => {
       <main>
         <Container>
           <h1>Vault</h1>
+          <ImageDialog open={selectedImage !== null} onClose={() => setSelectedImage(null)} image={selectedImage} />
           <Grid container spacing={2}>
             {images.map((image: IVaultImage) => (
               <Grid item key={`${image.id}_${image.albumId}`} xs={12} sm={6} md={4} >
-                  <Button>
+                  <Button onClick={() => setSelectedImage(image)} aria-label={"Open image"}>
                     <figure>
                     <ThumbnailImage
                       src={image.thumbnailUrl}
