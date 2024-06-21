@@ -17,20 +17,23 @@ const Post = ({data}: PostProps) => {
       <CardContent>
         <Typography variant="body1">{data.body}</Typography>
       </CardContent>
-      <CardActions>
-        <Accordion>
-          <AccordionSummary>
-            {data.commentsCount} Comments
-          </AccordionSummary>
-          <AccordionDetails>
-            <Stack spacing={2} divider={<Divider />}>
-              {data.comments.map((comment) => (
-                <Comment key={`${comment.id}_${comment.postId}`} data={comment}/>
-              ))}
-            </Stack>
-          </AccordionDetails>
-        </Accordion>
-      </CardActions>
+      {
+        data.comments.length > 0 &&
+        <CardActions>
+          <Accordion>
+            <AccordionSummary>
+              {data.commentsCount} Comments
+            </AccordionSummary>
+            <AccordionDetails>
+              <Stack spacing={2} divider={<Divider />}>
+                {data.comments.map((comment) => (
+                  <Comment key={`${comment.id}_${comment.postId}`} data={comment}/>
+                ))}
+              </Stack>
+            </AccordionDetails>
+          </Accordion>
+        </CardActions>
+      }
     </Card>
   )
 }
