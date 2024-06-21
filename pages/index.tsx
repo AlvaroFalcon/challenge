@@ -8,6 +8,14 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>Fanvue</title>
+        <meta name={"description"} content={"Fanvue's Fullstack coding challenge"} />
+        <meta name={"keywords"} content={"fullstack, coding, challenge"} />
+        <meta name={"author"} content={"Fanvue"} />
+
+        <meta property="og:title" content="Fanvue - homepage"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://www.fanvue.com"/>
+        <meta property="og:image" content="favicon.png"/>
       </Head>
       <main>
         <Box textAlign={"center"} my={8}>
